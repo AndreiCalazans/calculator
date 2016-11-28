@@ -1,0 +1,15 @@
+
+input {
+  width:50px;
+
+}
+input[name="displayEntry"],input[name="display"]{
+  width: 210px;
+  text-align:right;
+}
+input[name="btn="]{
+
+}
+input[name="btn0"]{
+  width:105px;
+}
