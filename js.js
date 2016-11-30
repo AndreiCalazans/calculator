@@ -10,7 +10,10 @@ function displayvalue(n){
   if(n == "." && calcform.display.value === ""){
     n = "0."
   }
- console.log(answer);
+
+
+// try to concat the values and empty the answer var after concatinating it , see if
+//this could work, try that for everything ( concat);
   if(typeof(answer) === "number" && /[0-9.]/.test(n)){
     calcform.display.value = "";
     calcform.displayEntry.value ="";
@@ -51,14 +54,15 @@ document.addEventListener("keypress",function(n){
     calcform.displayEntry.value = "";
     answer = "";
   }
-
+function result(){
+ answer = eval(calcform.display.value);
+ calcform.display.value = calcform.display.value + " = " + answer;
+  calcform.displayEntry.value = answer;
+ }
   if(n.keyCode === 13 ){
-   function result(){
-  answer = eval(calcform.display.value);
-  calcform.display.value = calcform.display.value + " = " + answer;
-   calcform.displayEntry.value = answer;
-}
+    console.log("Yo");
     result();
+
   }else {
   var number = String.fromCharCode(n.keyCode);
  calcform.display.value = calcform.display.value + number;
