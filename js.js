@@ -17,9 +17,9 @@ function displayvalue(n){
   if(typeof(answer) === "number" && /[0-9.]/.test(n)){
     calcform.display.value = "";
     calcform.displayEntry.value ="";
-    answer = "";
+
   }else if (typeof(answer) === "number") {
-    calcform.display.value = answer;
+
   }
 
   if (n == "÷" ){
