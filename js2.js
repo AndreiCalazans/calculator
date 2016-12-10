@@ -1,10 +1,14 @@
 var answer ;
 function result(){
+  console.log(calcform.display.value);
   answer = eval(calcform.display.value);
-  calcform.display.value = calcform.display.value.concat(" = " + answer)
+console.log(answer);
+  calcform.display.value = calcform.display.value +" = " +answer;
+
+
 }
 
-calcform.display.value = "";
+
 function displayvalue(n){
   if (n == "÷" ){
     n = "/";
@@ -19,15 +23,24 @@ function displayvalue(n){
   calcform.display.value = calcform.display.value.concat(n);
 }
 function clearEntry(){
+  if(calcform.display.value.length = 1){
+    answer ="";
+    calcform.display.value = calcform.display.value.substr(0 , calcform.display.value.length - 1 );
+  }else{
   calcform.display.value = calcform.display.value.substr(0 , calcform.display.value.length - 1 );
+  }
+
+
+
 }
 function allClear(){
   calcform.display.value = "";
   answer = "";
+
 }
 
 document.addEventListener("keydown", function(n){
-  console.log(n);
+
   if(/[0-9/*+-]/.test(n.key)){
     if (/[/*+-]/.test(n.key) && typeof(answer) == "number" ){
       calcform.display.value = answer;
@@ -36,9 +49,14 @@ document.addEventListener("keydown", function(n){
 
     calcform.display.value = calcform.display.value.concat(n.key);
 
-  }else if (n.keyCode == 13){
+  }
+
+  if (n.keyCode == 13){
     result();
   }else if(n.which == 8){
     clearEntry();
   }
+
+
+
 })
